@@ -21,9 +21,18 @@ public class PlayerMovement : MonoBehaviour
     private void Rotate()
     {
 
-        if (input != null && input.rotate)
+        if (input != null)
         {
-            transform.Rotate(Vector3.up * yAngle);
+            if(input.Rrotate)
+            {
+                transform.Rotate(Vector3.up * yAngle);
+            }
+
+            if(input.Lrotate)
+            {
+                transform.Rotate(Vector3.up * yAngle * -1);
+            }
+
         }
 
     }

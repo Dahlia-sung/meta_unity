@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public bool rotate { get; private set; }
+    public bool Rrotate { get; private set; }
+    public bool Lrotate { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        rotate = false;
+        Rrotate = false;
+        Lrotate = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotate = Input.GetKeyDown(KeyCode.Space);
-        Debug.Log("get key down : "+rotate);
+        Rrotate = Input.GetKeyDown(KeyCode.D);
+        Lrotate = Input.GetKeyDown(KeyCode.A);
+        //Debug.Log("get key down : "+rotate);
     }
 }
