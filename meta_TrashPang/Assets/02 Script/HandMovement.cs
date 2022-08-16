@@ -15,4 +15,13 @@ public class HandMovement : MonoBehaviour
     {
         transform.Rotate(Vector3.right*speed*Time.deltaTime,Space.Self);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        IItem item = collision.collider.GetComponent<IItem>();
+        if(item!=null)
+        {
+            item.OnGoing(1000);
+        }
+    }
 }
