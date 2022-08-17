@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 public class Trash : MonoBehaviour, IItem
 {
-    private Rigidbody rigid;
+    protected Rigidbody rigid;
+    public TextMeshProUGUI result;
 
     void Awake()
     { 
-        rigid = GetComponent<Rigidbody>(); 
+        rigid = GetComponent<Rigidbody>();
+        result.enabled = false;
     }
-    public virtual void OnGoing(float power)
+
+    //게임 오브젝트 날리기
+    public void OnGoing(float power) 
     {
         Debug.Log("on going");
         rigid.velocity = Vector3.zero;
         rigid.AddForce(transform.up*power);
         rigid.AddForce(transform.forward * power);
+    }
+
+    public virtual void onGoal(GameObject collider)
+    {
+        result.enabled = true;
+        Debug.Log("goal!");
     }
 }
