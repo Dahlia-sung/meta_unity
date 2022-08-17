@@ -13,6 +13,8 @@ public class Trash : MonoBehaviour, IItem
     public virtual void OnGoing(float power)
     {
         Debug.Log("on going");
-        rigid.AddForce(transform.up* power);
+        rigid.velocity = Vector3.zero;
+        rigid.AddForce(transform.up*power);
+        rigid.AddForce(transform.forward * power);
     }
 }

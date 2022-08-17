@@ -21,7 +21,7 @@ public class HandMovement : MonoBehaviour
         IItem item = collision.collider.GetComponent<IItem>();
         if(item!=null)
         {
-            item.OnGoing(1000);
+            item.OnGoing(300);
         }
     }
 }
